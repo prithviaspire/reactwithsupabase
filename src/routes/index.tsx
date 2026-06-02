@@ -39,7 +39,7 @@ const STATS = [
   { value: "NBC", label: "Nepal Bar Council Recognized", Icon: Users },
 ];
 
-const BASE = "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets";
+const BASE = "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college_assets";
 
 const NOTICES = [
   { date: "Aug 15, 2026", tag: "Admission", title: "B.A.LL.B Integrated — Entrance Exam Registration Closing", url: `${BASE}/ballb_entrance_registration_2026.pdf` },
@@ -109,7 +109,7 @@ function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
-              href="https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets/bvc_prospectus_2026.pdf"
+              href="https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college_assets/bvc_prospectus_2026.pdf"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-sm border border-white/40 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-gold hover:bg-white/5 hover:text-gold"
@@ -222,14 +222,14 @@ const PROGRAMS = [
     title: "B.A.LL.B",
     body: "A rigorous undergraduate programme blending humanities with substantive law — torts, contracts, constitutional law, criminal procedure, and clinical practice.",
     to: "/programs/ballb",
-    syllabusUrl: "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets/ballb_syllabus_structure.pdf",
+    syllabusUrl: "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college_assets/ballb_syllabus_structure.pdf",
   },
   {
     duration: "2-Year Postgraduate",
     title: "LL.M",
     body: "Specialize in Human Rights & Gender Justice, Criminal Law & Justice, or Business & International Trade Law under the guidance of practicing scholars.",
     to: "/programs/llm",
-    syllabusUrl: "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets/llm_syllabus_tracks.pdf",
+    syllabusUrl: "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college_assets/llm_syllabus_tracks.pdf",
   },
 ];
 

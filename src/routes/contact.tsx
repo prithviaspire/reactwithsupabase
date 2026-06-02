@@ -20,10 +20,10 @@ function Page() {
 
     const form = e.currentTarget;
     const data = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
+      full_name: (form.elements.namedItem("name") as HTMLInputElement).value.trim(),
       email: (form.elements.namedItem("email") as HTMLInputElement).value.trim(),
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value.trim() || null,
-      programme: (form.elements.namedItem("programme") as HTMLInputElement).value.trim() || null,
+      selected_program: (form.elements.namedItem("programme") as HTMLSelectElement).value || null,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value.trim(),
     };
 
@@ -77,7 +77,19 @@ function Page() {
               <Field label="Full Name" name="name" required />
               <Field label="Email" name="email" type="email" required />
               <Field label="Phone" name="phone" />
-              <Field label="Programme of Interest" name="programme" placeholder="B.A.LL.B / LL.M" />
+              <div>
+                <label htmlFor="programme" className="block text-xs font-bold tracking-widest text-muted-foreground uppercase">Programme of Interest</label>
+                <select
+                  id="programme"
+                  name="programme"
+                  defaultValue=""
+                  className="mt-1.5 w-full rounded-sm border border-input bg-background px-3.5 py-2.5 text-sm transition focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                >
+                  <option value="" disabled>Select a programme…</option>
+                  <option value="B.A.LL.B">B.A.LL.B (5-Year Integrated)</option>
+                  <option value="LL.M">LL.M (2-Year Postgraduate)</option>
+                </select>
+              </div>
             </div>
             <div className="mt-4">
               <label htmlFor="message" className="block text-xs font-bold tracking-widest text-muted-foreground uppercase">Message</label>

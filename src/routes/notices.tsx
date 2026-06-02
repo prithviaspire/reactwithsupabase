@@ -3,7 +3,7 @@ import { Calendar, FileText } from "lucide-react";
 
 import { usePageMeta } from "@/lib/use-page-meta";
 
-const BASE = "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets";
+const BASE = "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college_assets";
 
 const NOTICES = [
   { date: "Aug 15, 2026", tag: "Admission", title: "B.A.LL.B Integrated — Entrance Exam Registration Closing", url: `${BASE}/ballb_entrance_registration_2026.pdf` },
