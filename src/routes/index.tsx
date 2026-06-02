@@ -39,11 +39,13 @@ const STATS = [
   { value: "NBC", label: "Nepal Bar Council Recognized", Icon: Users },
 ];
 
+const BASE = "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets";
+
 const NOTICES = [
-  { date: "Aug 15, 2026", tag: "Admission", title: "B.A.LL.B Integrated — Entrance Exam Registration Closing", file: "ballb-2026.pdf" },
-  { date: "Sep 02, 2026", tag: "Exam", title: "LL.M Entrance Examination — Hall Ticket Available", file: "llm-hall-ticket.pdf" },
-  { date: "Sep 18, 2026", tag: "Calendar", title: "Academic Calendar 2026-27 Released", file: "academic-calendar.pdf" },
-  { date: "Oct 12, 2026", tag: "Event", title: "12th National Inter-College Moot Court Competition", file: "moot-2026.pdf" },
+  { date: "Aug 15, 2026", tag: "Admission", title: "B.A.LL.B Integrated — Entrance Exam Registration Closing", url: `${BASE}/ballb_entrance_registration_2026.pdf` },
+  { date: "Sep 02, 2026", tag: "Exam", title: "LL.M Entrance Examination — Hall Ticket Available", url: `${BASE}/llm_entrance_hall_ticket.pdf` },
+  { date: "Sep 18, 2026", tag: "Calendar", title: "Academic Calendar 2026-27 Released", url: `${BASE}/academic_calendar_2026_27.pdf` },
+  { date: "Oct 12, 2026", tag: "Event", title: "12th National Inter-College Moot Court Competition", url: `${BASE}/moot_court_invitation_brochure.pdf` },
 ];
 
 function Index() {
@@ -106,13 +108,15 @@ function Hero() {
               Apply Online
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <button
-              onClick={() => alert("Brochure download — coming soon.")}
+            <a
+              href="https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets/bvc_prospectus_2026.pdf"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-sm border border-white/40 px-6 py-3.5 text-sm font-semibold text-white transition hover:border-gold hover:bg-white/5 hover:text-gold"
             >
               <Download className="h-4 w-4" />
               Download Brochure
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -218,12 +222,14 @@ const PROGRAMS = [
     title: "B.A.LL.B",
     body: "A rigorous undergraduate programme blending humanities with substantive law — torts, contracts, constitutional law, criminal procedure, and clinical practice.",
     to: "/programs/ballb",
+    syllabusUrl: "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets/ballb_syllabus_structure.pdf",
   },
   {
     duration: "2-Year Postgraduate",
     title: "LL.M",
     body: "Specialize in Human Rights & Gender Justice, Criminal Law & Justice, or Business & International Trade Law under the guidance of practicing scholars.",
     to: "/programs/llm",
+    syllabusUrl: "https://hiejrdhxzwrmnalhbegt.supabase.co/storage/v1/object/public/college-assets/llm_syllabus_tracks.pdf",
   },
 ];
 
@@ -242,19 +248,29 @@ function Programs() {
         </div>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {PROGRAMS.map((p) => (
-            <Link
+            <div
               key={p.title}
-              to={p.to}
               className="group relative overflow-hidden rounded-md border border-border bg-card p-8 transition hover:-translate-y-1 hover:border-primary hover:shadow-xl"
             >
               <div className="text-xs font-semibold tracking-[0.2em] text-primary uppercase">{p.duration}</div>
               <h3 className="mt-3 font-serif text-3xl font-bold text-navy lg:text-4xl">{p.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{p.body}</p>
-              <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-navy transition group-hover:text-primary">
-                Programme details <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Link to={p.to} className="inline-flex items-center gap-2 text-sm font-semibold text-navy transition group-hover:text-primary">
+                  Programme details <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <a
+                  href={p.syllabusUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline"
+                >
+                  <Download className="h-3.5 w-3.5" />
+                  Download Syllabus
+                </a>
               </div>
               <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-primary/5 transition group-hover:scale-150" />
-            </Link>
+            </div>
           ))}
         </div>
       </div>
@@ -291,13 +307,15 @@ function Notices() {
                 </span>
               </div>
               <div className="flex-1 text-sm font-medium text-navy">{n.title}</div>
-              <button
-                onClick={(e) => { e.preventDefault(); alert(`Mock download: ${n.file}`); }}
+              <a
+                href={n.url}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary opacity-80 transition group-hover:opacity-100 hover:underline"
               >
                 <FileText className="h-3.5 w-3.5" />
                 Download
-              </button>
+              </a>
             </div>
           ))}
         </div>
